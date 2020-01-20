@@ -1,0 +1,11 @@
+#define global variables, groups and host variables
+[all:vars]
+ansible_connection = local
+user=admin
+pwd=C1sco12345
+gather_fact=no
+[spine]
+198.18.134.13
+[leaf]
+198.18.134.14
+198.18.134.15
