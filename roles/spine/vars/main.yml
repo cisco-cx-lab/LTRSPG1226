@@ -3,7 +3,7 @@
   nxos_provider:
     username: "{{ user }}"
     password: "{{ pwd }}"
-    transport: nxapi
+    transport: cli
     timeout: 30
     host: "{{ inventory_hostname }}"
   asn: 65000
