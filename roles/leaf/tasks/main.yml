@@ -31,6 +31,12 @@
             addr: "{{ loopback1 }}"
             mask: 32
             provider: "{{ nxos_provider }}"
+       - name: Enable OSPF on New LP1
+         nxos_interface_ospf:
+           interface: loopback1
+           ospf: 1
+           area: 0
+           provider: "{{ nxos_provider }}"            
        - name: Enable BGP
          nxos_feature:
            feature: bgp
