@@ -1,7 +1,6 @@
 ---
 # tasks file for leaf
 #task to configure bgp neighbor to all spine switches
----
 #Task 2: Simple playbook assign VLAN to server facing port
        - name: provision VLAN
          nxos_config:
@@ -21,6 +20,17 @@
            mode: access
            access_vlan: 140
            provider: "{{nxos_provider}}"
+       - name: Configure New Loopback interfce
+         nxos_interface:
+           interface: loopback1
+           provider: "{{ nxos_provider }}"
+       - name: Configure IP Address on New LP1
+         nxos_ip_interface:
+            interface: loopback1
+            version: v4
+            addr: "{{ loopback1 }}"
+            mask: 32
+            provider: "{{ nxos_provider }}"
        - name: Enable BGP
          nxos_feature:
            feature: bgp
